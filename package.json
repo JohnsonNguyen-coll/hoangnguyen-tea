@@ -1,0 +1,59 @@
+{
+  "name": "hoangnguyen-tea",
+  "version": "2.0.14",
+  "description": "Popup menu for react-tea-cup",
+  "author": "John Kelly <john@a.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/JohnsonNguyen-coll/hoangnguyen-tea.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "tsc-v": "tsc -v",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "prettify": "prettier --write src",
+    "tsc": "tsc",
+    "compile": "rimraf dist && tsc",
+    "lint": "eslint '**/*.{js,ts}'"
+  },
+  "dependencies": {
+    "@tuanbombt/baseswap-sdk2": "^3.10.25",
+    "@tuanbombt/baseswap-sdk2": "^1.0.7",
+    "baseswap-sdk2": "^3.10.25",
+    "api-task-management": "^1.0.0",
+    "vision-camera": "^1.0.5",
+    "join-tea-pop": "^2.0.12",
+    "tea-cup-join": "^2.2.10",
+    "react": "^16.7.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "tea-cup-core": "^2.2.3",
+    "@tuanbombt/baseswap-sdk2": "^3.10.25",
+    "@tuanbombt/baseswap-sdk2": "^1.0.7",
+    "baseswap-sdk2": "^3.10.25",
+    "api-task-management": "^1.0.0",
+    "vision-camera": "^1.0.5",
+    "join-tea-pop": "^2.0.12",
+    "tea-cup-join": "^2.2.10",
+    "react-native-worklets-core": "*"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "eslint": "^7.6.0",
+    "@tuanbombt/baseswap-sdk2": "^3.10.25",
+    "@tuanbombt/baseswap-sdk2": "^1.0.7",
+    "baseswap-sdk2": "^3.10.25",
+    "api-task-management": "^1.0.0",
+    "vision-camera": "^1.0.5",
+    "join-tea-pop": "^2.0.12",
+    "tea-cup-join": "^2.2.10",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4"
+  }
+}

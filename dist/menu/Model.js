@@ -1,0 +1,53 @@
+"use strict";
+/*
+ * MIT License
+ *
+ * Copyright (c) 2020 Rémi Van Keisbelck
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.keyboardNavigated = exports.menuStatePlacing = exports.initialModel = void 0;
+const react_tea_cup_1 = require("react-tea-cup");
+function initialModel(menu, refBox) {
+    return {
+        uuid: react_tea_cup_1.nothing,
+        windowSize: react_tea_cup_1.nothing,
+        menu,
+        state: menuStatePlacing(refBox),
+        error: react_tea_cup_1.nothing,
+        child: react_tea_cup_1.nothing,
+        navigatedWithKeyboard: false,
+        subMenuCounter: 0,
+    };
+}
+exports.initialModel = initialModel;
+function menuStatePlacing(refBox) {
+    return {
+        tag: 'placing',
+        refBox,
+    };
+}
+exports.menuStatePlacing = menuStatePlacing;
+function keyboardNavigated(model, navigatedWithKeyboard = true) {
+    return Object.assign(Object.assign({}, model), { navigatedWithKeyboard });
+}
+exports.keyboardNavigated = keyboardNavigated;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTW9kZWwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvbWVudS9Nb2RlbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBdUJHOzs7QUFHSCxpREFBK0M7QUFjL0MsU0FBZ0IsWUFBWSxDQUFJLElBQWEsRUFBRSxNQUFXO0lBQ3hELE9BQU87UUFDTCxJQUFJLEVBQUUsdUJBQU87UUFDYixVQUFVLEVBQUUsdUJBQU87UUFDbkIsSUFBSTtRQUNKLEtBQUssRUFBRSxnQkFBZ0IsQ0FBQyxNQUFNLENBQUM7UUFDL0IsS0FBSyxFQUFFLHVCQUFPO1FBQ2QsS0FBSyxFQUFFLHVCQUFPO1FBQ2QscUJBQXFCLEVBQUUsS0FBSztRQUM1QixjQUFjLEVBQUUsQ0FBQztLQUNsQixDQUFDO0FBQ0osQ0FBQztBQVhELG9DQVdDO0FBTUQsU0FBZ0IsZ0JBQWdCLENBQUMsTUFBVztJQUMxQyxPQUFPO1FBQ0wsR0FBRyxFQUFFLFNBQVM7UUFDZCxNQUFNO0tBQ1AsQ0FBQztBQUNKLENBQUM7QUFMRCw0Q0FLQztBQUVELFNBQWdCLGlCQUFpQixDQUMvQixLQUFlLEVBQ2YscUJBQXFCLEdBQUcsSUFBSTtJQUU1Qix1Q0FBWSxLQUFLLEtBQUUscUJBQXFCLElBQUc7QUFDN0MsQ0FBQztBQUxELDhDQUtDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIE1JVCBMaWNlbnNlXG4gKlxuICogQ29weXJpZ2h0IChjKSAyMDIwIFLDqW1pIFZhbiBLZWlzYmVsY2tcbiAqXG4gKiBQZXJtaXNzaW9uIGlzIGhlcmVieSBncmFudGVkLCBmcmVlIG9mIGNoYXJnZSwgdG8gYW55IHBlcnNvbiBvYnRhaW5pbmcgYSBjb3B5XG4gKiBvZiB0aGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmlsZXMgKHRoZSBcIlNvZnR3YXJlXCIpLCB0byBkZWFsXG4gKiBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG4gKiB0byB1c2UsIGNvcHksIG1vZGlmeSwgbWVyZ2UsIHB1Ymxpc2gsIGRpc3RyaWJ1dGUsIHN1YmxpY2Vuc2UsIGFuZC9vciBzZWxsXG4gKiBjb3BpZXMgb2YgdGhlIFNvZnR3YXJlLCBhbmQgdG8gcGVybWl0IHBlcnNvbnMgdG8gd2hvbSB0aGUgU29mdHdhcmUgaXNcbiAqIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG4gKlxuICogVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsXG4gKiBjb3BpZXMgb3Igc3Vic3RhbnRpYWwgcG9ydGlvbnMgb2YgdGhlIFNvZnR3YXJlLlxuICpcbiAqIFRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCBcIkFTIElTXCIsIFdJVEhPVVQgV0FSUkFOVFkgT0YgQU5ZIEtJTkQsIEVYUFJFU1MgT1JcbiAqIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuICogRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5PTklORlJJTkdFTUVOVC4gSU4gTk8gRVZFTlQgU0hBTEwgVEhFXG4gKiBBVVRIT1JTIE9SIENPUFlSSUdIVCBIT0xERVJTIEJFIExJQUJMRSBGT1IgQU5ZIENMQUlNLCBEQU1BR0VTIE9SIE9USEVSXG4gKiBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuICogT1VUIE9GIE9SIElOIENPTk5FQ1RJT04gV0lUSCBUSEUgU09GVFdBUkUgT1IgVEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUyBJTiBUSEVcbiAqIFNPRlRXQVJFLlxuICpcbiAqL1xuXG5pbXBvcnQgeyBNZW51IH0gZnJvbSAnLi9NZW51JztcbmltcG9ydCB7IE1heWJlLCBub3RoaW5nIH0gZnJvbSAncmVhY3QtdGVhLWN1cCc7XG5pbXBvcnQgeyBCb3gsIERpbSB9IGZyb20gJy4uL2NvbW1vbic7XG5cbmV4cG9ydCBpbnRlcmZhY2UgTW9kZWw8VD4ge1xuICByZWFkb25seSB1dWlkOiBNYXliZTxzdHJpbmc+O1xuICByZWFkb25seSB3aW5kb3dTaXplOiBNYXliZTxEaW0+O1xuICByZWFkb25seSBtZW51OiBNZW51PFQ+O1xuICByZWFkb25seSBzdGF0ZTogTWVudVN0YXRlO1xuICByZWFkb25seSBlcnJvcjogTWF5YmU8RXJyb3I+O1xuICByZWFkb25seSBjaGlsZDogTWF5YmU8TW9kZWw8VD4+O1xuICByZWFkb25seSBuYXZpZ2F0ZWRXaXRoS2V5Ym9hcmQ6IGJvb2xlYW47XG4gIHJlYWRvbmx5IHN1Yk1lbnVDb3VudGVyOiBudW1iZXI7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBpbml0aWFsTW9kZWw8VD4obWVudTogTWVudTxUPiwgcmVmQm94OiBCb3gpOiBNb2RlbDxUPiB7XG4gIHJldHVybiB7XG4gICAgdXVpZDogbm90aGluZyxcbiAgICB3aW5kb3dTaXplOiBub3RoaW5nLFxuICAgIG1lbnUsXG4gICAgc3RhdGU6IG1lbnVTdGF0ZVBsYWNpbmcocmVmQm94KSxcbiAgICBlcnJvcjogbm90aGluZyxcbiAgICBjaGlsZDogbm90aGluZyxcbiAgICBuYXZpZ2F0ZWRXaXRoS2V5Ym9hcmQ6IGZhbHNlLFxuICAgIHN1Yk1lbnVDb3VudGVyOiAwLFxuICB9O1xufVxuXG5leHBvcnQgdHlwZSBNZW51U3RhdGUgPVxuICB8IHsgdGFnOiAncGxhY2luZyc7IHJlZkJveDogQm94IH1cbiAgfCB7IHRhZzogJ29wZW4nOyBib3g6IEJveCB9O1xuXG5leHBvcnQgZnVuY3Rpb24gbWVudVN0YXRlUGxhY2luZyhyZWZCb3g6IEJveCk6IE1lbnVTdGF0ZSB7XG4gIHJldHVybiB7XG4gICAgdGFnOiAncGxhY2luZycsXG4gICAgcmVmQm94LFxuICB9O1xufVxuXG5leHBvcnQgZnVuY3Rpb24ga2V5Ym9hcmROYXZpZ2F0ZWQ8VD4oXG4gIG1vZGVsOiBNb2RlbDxUPixcbiAgbmF2aWdhdGVkV2l0aEtleWJvYXJkID0gdHJ1ZSxcbik6IE1vZGVsPFQ+IHtcbiAgcmV0dXJuIHsgLi4ubW9kZWwsIG5hdmlnYXRlZFdpdGhLZXlib2FyZCB9O1xufVxuIl19
